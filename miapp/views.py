@@ -15,7 +15,7 @@ layout = """
             <a href="/hola-mundo">Hola mundo</a>
         </li>
         <li>
-            <a href="/pagina-pruebas">Pagina de pruebas</a>
+            <a href="/pagina">Pagina de pruebas</a>
         </li>
         <li>
             <a href="/contacto">Contacto</a>
