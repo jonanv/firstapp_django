@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        <!-- Titulo de cada pagina -->
+        {% endblock title %} | Django con Python
+    </title>
+</head>
+
+<body>
+
+    <h1>Sitio web con Django | Giovanni</h1>
+    <hr/>
+    <ul>
+        <li>
+            <a href="/inicio">Inicio</a>
+        </li>
+        <li>
+            <a href="/hola-mundo">Hola mundo</a>
+        </li>
+        <li>
+            <a href="/pagina-pruebas">Pagina de pruebas</a>
+        </li>
+        <li>
+            <a href="/contacto">Contacto</a>
+        </li>
+    </ul>
+
+    <hr/>
+
+    <div id="content">
+        {% block content %}
+        <!-- Codigo que viene de la template -->
+        {% endblock content %}
+    </div>
+
+    <hr>
+
+    <footer>
+        Master en Python &copy; Giovanni
+    </footer>
+
+</body>
+
+</html>
