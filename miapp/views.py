@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 
 # Create your views here.
 # MVC = Modelo Vista Controlador -> Acciones (metodos)
@@ -44,7 +44,11 @@ def holaMundo(request):
         <h1>Hola mundo con Django!</h1>
     """)
 
-def pagina(request):
+def pagina(request, redirigir=0):
+
+    if redirigir == 1:
+        return redirect('/inicio/')
+
     return HttpResponse(layout + """
         <h1>Pagina de mi web</h1>
         <p>Creado por Giovanni Vargas</p>
