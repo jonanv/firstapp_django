@@ -50,5 +50,5 @@ def pagina(request):
         <p>Creado por Giovanni Vargas</p>
     """)
 
-def contacto(request, nombre):
-    return HttpResponse(layout + f"<h2>Contacto { nombre }</h2>")
+def contacto(request, nombre, apellidos):
+    return HttpResponse(layout + f"<h2>Contacto { nombre } { apellidos }</h2>")
