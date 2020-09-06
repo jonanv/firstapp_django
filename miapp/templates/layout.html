@@ -41,11 +41,18 @@
         </ul>
     </nav>
 
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
     <div id="content">
-        <h2 class="title">Titulo prueba</h2>
-        {% block content %}
-        <!-- Codigo que viene de la template -->
-        <strong>Contenido del bloque original!!</strong> {% endblock content %}
+        <div class="box">
+            {% block content %}
+            <!-- Codigo que viene de la template -->
+            <strong>Contenido del bloque original!!</strong> {% endblock content %}
+        </div>
     </div>
 
     <footer>

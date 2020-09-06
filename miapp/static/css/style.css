@@ -83,3 +83,65 @@ nav ul li a:hover {
     color: white;
     transition: all 300ms;
 }
+
+.barra {
+    width: 95%;
+    margin: 0 auto;
+}
+
+span.esquina-izquierda {
+    display: block;
+    border-left: 20px solid transparent;
+    border-top: 10px solid #2b2f30;
+    float: left;
+}
+
+span.esquina-derecha {
+    display: block;
+    border-right: 25px solid transparent;
+    border-top: 10px solid #2b2f30;
+    float: right;
+}
+
+span.relleno-barra {
+    display: block;
+    width: 90%;
+    height: 10px;
+    background: #2b2f30;
+    float: left;
+}
+
+
+/* Estilos contenido central */
+
+#content {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    background: white;
+    width: 95%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+.title {
+    color: #444444;
+    letter-spacing: 1px;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+/* Estilos footer */
+
+footer {
+    width: 90%;
+    margin: 0 auto;
+}
