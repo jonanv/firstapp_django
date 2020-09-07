@@ -32,7 +32,10 @@ def index(request):
             html += f"<li>{ str(year) }</li>"
         year += 1
     
-    return render(request, 'index.html')
+    return render(request, 'index.html', {
+        'title': 'Inicio prueba',
+        'mi_variable': 'Soy un dato que esta en la vista'
+    })
 
 def hola_mundo(request):
     return render(request, 'hola_mundo.html')
