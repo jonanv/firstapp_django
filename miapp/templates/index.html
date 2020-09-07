@@ -7,13 +7,28 @@
 {% block content %}
     {{ block.super }}
     <h1 class="title">{{ title }}</h1>
-    {{ mi_variable }}
+
+    <br/>
+
+    <p>{{ mi_variable }}</p>
+
+    <br/>
 
     {% if nombre and nombre == 'Giovanni Vargas' %}
         <p>{{ nombre }}</p>
     {% else %}
         <p><strong>El nombre no existe o no coincide</strong></p>
     {% endif %}
+
+    <br/>
+
+    <ul>
+        {% for lenguaje in lenguajes %}
+            <li>{{ lenguaje }}</li>
+        {% endfor %}
+    </ul>
+
+    <br/>
 
     <p>Anios hasta el 2050:</p> 
 {% endblock content %}

@@ -33,11 +33,13 @@ def index(request):
         year += 1
 
     nombre = 'Giovanni Vargas'
+    lenguajes = ['Javascript', 'Python', 'PHP', 'C']
     
     return render(request, 'index.html', {
         'title': 'Inicio prueba',
         'mi_variable': 'Soy un dato que esta en la vista',
-        # 'nombre': nombre
+        'nombre': nombre,
+        'lenguajes': lenguajes
     })
 
 def hola_mundo(request):
