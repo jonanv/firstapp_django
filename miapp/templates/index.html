@@ -22,9 +22,12 @@
 
     <br/>
 
-    <ul>
+    <h3>Listado de lenguajes de programacion:</h3>
+    <ul style="margin-left: 20px">
         {% for lenguaje in lenguajes %}
             <li>{{ lenguaje }}</li>
+        {% empty %}
+            <p>NO HAY LENGUAJES QUE MOSTRAR</p>
         {% endfor %}
     </ul>
 

@@ -34,6 +34,7 @@ def index(request):
 
     nombre = 'Giovanni Vargas'
     lenguajes = ['Javascript', 'Python', 'PHP', 'C']
+    # lenguajes = []
     
     return render(request, 'index.html', {
         'title': 'Inicio prueba',
