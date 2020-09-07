@@ -31,10 +31,13 @@ def index(request):
         if (year % 2 == 0):
             html += f"<li>{ str(year) }</li>"
         year += 1
+
+    nombre = 'Giovanni Vargas'
     
     return render(request, 'index.html', {
         'title': 'Inicio prueba',
-        'mi_variable': 'Soy un dato que esta en la vista'
+        'mi_variable': 'Soy un dato que esta en la vista',
+        # 'nombre': nombre
     })
 
 def hola_mundo(request):

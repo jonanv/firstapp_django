@@ -8,5 +8,12 @@
     {{ block.super }}
     <h1 class="title">{{ title }}</h1>
     {{ mi_variable }}
+
+    {% if nombre and nombre == 'Giovanni Vargas' %}
+        <p>{{ nombre }}</p>
+    {% else %}
+        <p><strong>El nombre no existe o no coincide</strong></p>
+    {% endif %}
+
     <p>Anios hasta el 2050:</p> 
 {% endblock content %}
