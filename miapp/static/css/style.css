@@ -106,6 +106,7 @@ span.esquina-derecha {
 span.relleno-barra {
     display: block;
     width: 90%;
+    /* TODO: Organizar el width para que quede responsive */
     height: 10px;
     background: #2b2f30;
     float: left;
@@ -142,6 +143,14 @@ span.relleno-barra {
 /* Estilos footer */
 
 footer {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
+    background-color: #1b1b1b;
+    border: 1px solid #333;
+    color: #d1d4d6;
+    text-align: center;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 20px gray;
 }
