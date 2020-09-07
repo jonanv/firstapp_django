@@ -105,7 +105,7 @@ span.esquina-derecha {
 
 span.relleno-barra {
     display: block;
-    width: 90%;
+    width: 95%;
     /* TODO: Organizar el width para que quede responsive */
     height: 10px;
     background: #2b2f30;
