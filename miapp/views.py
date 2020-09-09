@@ -27,10 +27,11 @@ layout = """
 def index(request):
     html = ""
     year = 2021
-    while year <= 2050:
-        if (year % 2 == 0):
-            html += f"<li>{ str(year) }</li>"
-        year += 1
+    hasta = range(year, 2050)
+    # while year <= 2050:
+    #     if (year % 2 == 0):
+    #         html += f"<li>{ str(year) }</li>"
+    #     year += 1
 
     nombre = 'Giovanni Vargas'
     lenguajes = ['Javascript', 'Python', 'PHP', 'C']
@@ -40,7 +41,8 @@ def index(request):
         'title': 'Inicio prueba',
         'mi_variable': 'Soy un dato que esta en la vista',
         'nombre': nombre,
-        'lenguajes': lenguajes
+        'lenguajes': lenguajes,
+        'years': hasta
     })
 
 def hola_mundo(request):

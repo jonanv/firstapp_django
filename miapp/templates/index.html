@@ -33,5 +33,12 @@
 
     <br/>
 
-    <p>Anios hasta el 2050:</p> 
+    <p>Anios hasta el 2050:</p>
+    <ul style="margin-left: 20px;">
+        {% for year in years %}
+            {% if year|divisibleby:2 == True %}
+                <li>{{ year }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 {% endblock content %}
