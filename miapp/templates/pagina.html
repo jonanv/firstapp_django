@@ -1,12 +1,24 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-Pagina de pruebas
+    Pagina de pruebas
 {% endblock title %}
 
 {% block content %}
 
-<h1 class="title">Pagina de mi web</h1>
-<p>Creado por Giovanni Vargas</p>
+    <h1 class="title">Pagina de mi web</h1>
+    <p>{{ "Creado por Giovanni Vargas" | cut:'G'}}</p>
+
+    <p>{{ texto | default:"No hay nada" }}</p>
+
+    <p>{{ lista | first }}</p>
+    <p>{{ lista | last }}</p>
+    <p>{{ lista | join:',' }}</p>
+    <p>{{ lista | length }}</p>
+    <p>{{ "texto pruebas" | length }}</p>
+    <p>{{ "texto pruebas" | upper }}</p>
+    <p>{{ "texto pruebas" | capfirst }}</p>
+    <p>{{ "TEXTO PRUEBAS" | lower }}</p>
+    <p>{{ lista | random }}</p>
 
 {% endblock content %}
