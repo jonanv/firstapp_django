@@ -22,4 +22,8 @@
     <p>{{ lista | random }}</p>
     <p>{{ "<h1>Prueba</h1>" | striptags | wordcount }}</p>
 
+    {% comment %} Filter personalizado {% endcomment %}
+    {% load filters %}
+    {{ "Giovanni Vargas Gonzalez" | saludo | safe }}
+
 {% endblock content %}
