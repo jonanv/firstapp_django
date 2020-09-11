@@ -9,4 +9,6 @@ class Article(models.Model):
     upgrade_at = models.DateField(auto_now = True)
 
 class Category(models.Model):
-    
+    name = models.CharField(max_length = 100)
+    description = models.CharField(max_lenght = 250)
+    created_at = models.DateField()
