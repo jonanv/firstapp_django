@@ -11,10 +11,12 @@
         {% for articulo in articulos %}
             <li>
                 <h4>id: [{{ articulo.id }}] - title: {{ articulo.title }}</h4>
-                <p>{{ articulo.content }}</p>
-                <a href="{% url 'borrar_articulo' id=articulo.id %}">Eliminar</a>
-                <br/>
-                <br/>
+                <span>{{ articulo.created_at }}</span>
+                <p>
+                    {{ articulo.content }}
+                    <br/>
+                    <a href="{% url 'borrar_articulo' id=articulo.id %}">Eliminar</a>
+                </p>
             </li>
         {% endfor %}
     </ul>

@@ -115,6 +115,14 @@ def articulos(request):
     # articulos = Article.objects.order_by('-title')
     # articulos = Article.objects.order_by('id')[:3]
     # articulos = Article.objects.order_by('id')[3:10]
+    
+    # filters
+    # articulos = Article.objects.filter(title='Batman')
+
+    # lookups
+    # articulos = Article.objects.filter(title__contains='articulo')
+    # articulos = Article.objects.filter(title__exact='articulo')
+    # articulos = Article.objects.filter(title__iexact='batman')
 
     return render(request, 'articulos.html', {
         'articulos': articulos
