@@ -96,3 +96,14 @@ def articulo(request):
         response = "Articulo no encontrado"
 
     return HttpResponse(response)
+
+# Metodo de la vista editar articulo
+def editar_articulo(request, id):
+    articulo = Article.objects.get(pk=id)
+
+    articulo.title = "Batman"
+    articulo.content = "Batman dark night"
+    articulo.public = True
+    articulo.save()
+
+    return HttpResponse(f"Articulo editado: { articulo.title } - { articulo.content }")
