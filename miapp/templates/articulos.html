@@ -9,7 +9,13 @@
 
     <ul style="margin-left: 20px">
         {% for articulo in articulos %}
-            <li>id: {{ articulo.id }} - title: {{ articulo.title }}</li>
+            <li>
+                <h4>id: [{{ articulo.id }}] - title: {{ articulo.title }}</h4>
+                <p>{{ articulo.content }}</p>
+                <a href="{% url 'borrar_articulo' id=articulo.id %}">Eliminar</a>
+                <br/>
+                <br/>
+            </li>
         {% endfor %}
     </ul>
 

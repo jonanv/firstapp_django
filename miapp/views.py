@@ -110,12 +110,19 @@ def editar_articulo(request, id):
 
 # Metodo de la vista articulos
 def articulos(request):
-    # articulos = Article.objects.all()
+    articulos = Article.objects.all()
     # articulos = Article.objects.order_by('title')
     # articulos = Article.objects.order_by('-title')
     # articulos = Article.objects.order_by('id')[:3]
-    articulos = Article.objects.order_by('id')[3:10]
+    # articulos = Article.objects.order_by('id')[3:10]
 
     return render(request, 'articulos.html', {
         'articulos': articulos
     })
+
+# Metodo de la vista eliminar articulo
+def borrar_articulo(request, id):
+    articulo = Article.objects.get(pk=id)
+    articulo.delete()
+
+    return redirect('articulos')
