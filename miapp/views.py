@@ -7,6 +7,7 @@ from miapp.models import Article
 # MVC = Modelo Vista Controlador -> Acciones (metodos)
 # MVT = Modelo Template Vista -> Acciones (metodos)
 
+# Menu que es cargado en la vista contacto
 layout = """
     <h1>Sitio web con Django | Giovanni</h1>
     <hr/>
@@ -27,6 +28,7 @@ layout = """
     <hr/>
 """
 
+# Metoto de la vista index
 def index(request):
     html = ""
     year = 2021
@@ -48,9 +50,11 @@ def index(request):
         'years': hasta
     })
 
+# Metodo de la vista hola-mundo
 def hola_mundo(request):
     return render(request, 'hola_mundo.html')
 
+# Metodo de la vista pagina
 def pagina(request, redirigir=0):
 
     if redirigir == 1:
@@ -61,6 +65,7 @@ def pagina(request, redirigir=0):
         'lista': ['uno', 'dos', 'tres']
     })
 
+# Metodo de las vista contacto
 def contacto(request, nombre="", apellidos=""):
     html = ""
 
@@ -80,3 +85,14 @@ def crear_articulo(request, title, content, public):
     articulo.save()
 
     return HttpResponse(f"Articulo creado: { articulo.title } - { articulo.content }")
+
+# Metodo de la vista articulo
+def articulo(request):
+    try:
+        articulo = Article.objects.get(pk=6)
+        # articulo = Article.objects.get(title="Superman", public=True)
+        response = f"</br>Articulo: </br> Id: { articulo.id } - { articulo.title }"
+    except:
+        response = "Articulo no encontrado"
+
+    return HttpResponse(response)
