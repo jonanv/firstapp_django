@@ -6,10 +6,10 @@ class Article(models.Model):
     content = models.TextField()
     image = models.ImageField(default = 'null')
     public = models.BooleanField()
-    created_at = models.DateField(auto_now_add = True)
-    upgrade_at = models.DateField(auto_now = True)
+    created_at = models.DateTimeField(auto_now_add = True)
+    upgrade_at = models.DateTimeField(auto_now = True)
 
 class Category(models.Model):
     name = models.CharField(max_length = 110)
     description = models.CharField(max_length = 250)
-    created_at = models.DateField()
+    created_at = models.DateTimeField()
