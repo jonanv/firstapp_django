@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 
 # Importacion de modelos
 from miapp.models import Article
+from django.db.models import Q
 
 # Create your views here.
 # MVC = Modelo Vista Controlador -> Acciones (metodos)
@@ -111,6 +112,8 @@ def editar_articulo(request, id):
 # Metodo de la vista articulos
 def articulos(request):
     articulos = Article.objects.all()
+
+    # order by
     # articulos = Article.objects.order_by('title')
     # articulos = Article.objects.order_by('-title')
     # articulos = Article.objects.order_by('id')[:3]
@@ -129,6 +132,10 @@ def articulos(request):
 
     # consulta SQL
     # articulos = Article.objects.raw("SELECT * FROM miapp_article WHERE title='prueba' AND public=0")
+
+    articulos = Article.objects.filter(
+        Q(title__contains='3') | Q(title__contains='prueba')
+    )
 
     return render(request, 'articulos.html', {
         'articulos': articulos
