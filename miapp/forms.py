@@ -1,4 +1,6 @@
+# Imports
 from django import forms
+from django.core import validators
 
 class FormArticle(forms.Form):
     title = forms.CharField(
@@ -10,7 +12,11 @@ class FormArticle(forms.Form):
                 'placeholder': 'Ingresa el titulo',
                 'class': 'form-control'
             }
-        )
+        ),
+        validators = [
+            validators.MinLengthValidator(4, 'El titulo es demasiado corto'),
+            validators.RegexValidator('^[A-Za-z0-9ñÑ ]*$', message='El titulo esta mal formado', code='invalid_title')
+        ]
     )
 
     content = forms.CharField(
@@ -22,7 +28,10 @@ class FormArticle(forms.Form):
                 'placeholder': 'Ingresa el contenido',
                 'class': 'form-control'
             }
-        )
+        ),
+        validators = [
+            validators.MaxLengthValidator(20, 'Has puesto demasiado texto')
+        ]
     )
 
     public_options = [
@@ -31,5 +40,10 @@ class FormArticle(forms.Form):
     ]
     public = forms.TypedChoiceField(
         label = "Publicado",
-        choices = public_options
+        choices = public_options,
+        widget = forms.Select(
+            attrs = {
+                'class': 'form-control'
+            }
+        )
     )

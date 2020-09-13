@@ -7,6 +7,10 @@
 {% block content %}
     <h1 class="title">Formularios en Django</h1>
 
+    {% if form.errors %}
+        <span class="badge badge-danger">Hay errores en el formulario</span>
+    {% endif %}
+
     <form action="" method="POST" autocomplete="off">
         {% csrf_token %}
         
