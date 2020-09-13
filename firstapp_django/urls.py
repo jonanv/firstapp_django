@@ -42,7 +42,11 @@ urlpatterns = [
 ]
 
 # Configurar titulo del panel
-admin.site.site_header = "Master en Python - Django"
+title = "Master en Python - Django"
+admin.site.site_header = title
+admin.site.site_title = title
+admin.site.index_title = "Panel de gestion"
+
 # Configuracion para cargar imagenes
 if settings.DEBUG:
     from django.conf.urls.static import static
