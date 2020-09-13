@@ -115,7 +115,26 @@ def create_article(request):
 
 # Metodo de la vista create full article
 def create_full_article(request):
-    formulario = FormArticle()
+    if request.method == 'POST':
+        formulario = FormArticle(request.POST)
+        if formulario.is_valid():
+            data_form = formulario.cleaned_data
+
+            title = data_form.get('title')
+            content = data_form['content']
+            public = data_form['public']
+
+            articulo = Article(
+                title = title,
+                content = content,
+                public = public
+            )
+            articulo.save()
+
+            # return HttpResponse(title + ' ' + content + ' ' + public)
+            return redirect('articulos')
+    else:
+        formulario = FormArticle()
 
     return render(request, 'create_full_article.html', {
         'form': formulario
@@ -152,6 +171,7 @@ def articulos(request):
     # articulos = Article.objects.order_by('-title')
     # articulos = Article.objects.order_by('id')[:3]
     # articulos = Article.objects.order_by('id')[3:10]
+    articulos = Article.objects.order_by('-id')
     
     # filters
     # articulos = Article.objects.filter(title='Batman')
