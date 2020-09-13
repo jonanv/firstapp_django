@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block title %}
     Listado de artículos
@@ -15,29 +16,34 @@
         {% endfor %}
     {% endif %}
 
-    <ul style="margin-left: 20px">
+    <article class="article-item">
         {% for articulo in articulos %}
-            <li>
-                {% if articulo.image != 'null' and articulo.image|length >= 1 %}
-                    <img src="{{ articulo.image.url }}" width="70px">
-                {% endif %}
 
-                <h4>id: [{{ articulo.id }}] - title: {{ articulo.title }}</h4>
-                <span>{{ articulo.created_at }}</span>
-                
-                {% if articulo.public %}
-                    <strong>Publico</strong>
-                {% else %}
-                    <strong>Privado</strong>
-                {% endif %}
+            <div class="card mb-3">
+                <div class="row no-gutters">
 
-                <p>
-                    {{ articulo.content }}
-                    <br/>
-                    <a href="{% url 'borrar_articulo' id=articulo.id %}">Eliminar</a>
-                </p>
-            </li>
+                    {% if articulo.image != 'null' and articulo.image|length >= 1 %}
+                        <div class="col-md-4 d-flex justify-content-center align-items-center align-content-center">
+                            <img src="{{ articulo.image.url }}" class="card-img rounded img-fluid" alt="..." style="width: 150px">
+                        </div>
+                    {% comment %} {% elif %}
+                        <div class="col-md-4 d-flex justify-content-center align-items-center align-content-center">
+                            <img src="{% static '/media/articles/no-image.png' %}" class="card-img rounded img-fluid" alt="..." style="width: 150px">
+                        </div> {% endcomment %}
+                    {% endif %}
+
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ articulo.title }}</h5>
+                            <p class="card-text">{{ articulo.content }}</p>
+                            <p class="card-text"><small class="text-muted">{{ articulo.created_at }}</small></p>
+                            <a href="{% url 'borrar_articulo' id=articulo.id %}" class="btn btn-outline-danger btn-block">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         {% endfor %}
-    </ul>
+    </article>
 
 {% endblock content %}

@@ -175,7 +175,7 @@ def articulos(request):
     # articulos = Article.objects.order_by('-title')
     # articulos = Article.objects.order_by('id')[:3]
     # articulos = Article.objects.order_by('id')[3:10]
-    articulos = Article.objects.order_by('-id')
+    # articulos = Article.objects.order_by('-id')
     
     # filters
     # articulos = Article.objects.filter(title='Batman')
@@ -195,6 +195,8 @@ def articulos(request):
     # articulos = Article.objects.filter(
     #     Q(title__contains='3') | Q(title__contains='prueba')
     # )
+
+    articulos = Article.objects.filter(public=True).order_by('-id')
 
     return render(request, 'articulos.html', {
         'articulos': articulos
