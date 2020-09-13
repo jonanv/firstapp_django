@@ -124,6 +124,9 @@ def articulos(request):
     # articulos = Article.objects.filter(title__exact='articulo')
     # articulos = Article.objects.filter(title__iexact='batman')
 
+    # exclude
+    articulos = Article.objects.filter(title='prueba').exclude(public=True)
+
     return render(request, 'articulos.html', {
         'articulos': articulos
     })
