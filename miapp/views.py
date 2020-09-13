@@ -125,7 +125,10 @@ def articulos(request):
     # articulos = Article.objects.filter(title__iexact='batman')
 
     # exclude
-    articulos = Article.objects.filter(title='prueba').exclude(public=True)
+    # articulos = Article.objects.filter(title='prueba').exclude(public=False)
+
+    # consulta SQL
+    # articulos = Article.objects.raw("SELECT * FROM miapp_article WHERE title='prueba' AND public=0")
 
     return render(request, 'articulos.html', {
         'articulos': articulos
