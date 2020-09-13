@@ -26,10 +26,10 @@
                         <div class="col-md-4 d-flex justify-content-center align-items-center align-content-center">
                             <img src="{{ articulo.image.url }}" class="card-img rounded img-fluid" alt="..." style="width: 150px">
                         </div>
-                    {% comment %} {% elif %}
+                    {% else %}
                         <div class="col-md-4 d-flex justify-content-center align-items-center align-content-center">
-                            <img src="{% static '/media/articles/no-image.png' %}" class="card-img rounded img-fluid" alt="..." style="width: 150px">
-                        </div> {% endcomment %}
+                            <img src="{% static 'img/no-image.png' %}" class="card-img rounded img-fluid" alt="..." style="width: 150px">
+                        </div>
                     {% endif %}
 
                     <div class="col-md-8">
