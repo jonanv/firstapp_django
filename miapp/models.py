@@ -4,7 +4,7 @@ from django.db import models
 class Article(models.Model):
     title = models.CharField(max_length=150, verbose_name='Título')
     content = models.TextField(verbose_name='Contenido')
-    image = models.ImageField(default='null', verbose_name='Imagen')
+    image = models.ImageField(default='null', verbose_name='Imagen', upload_to="articles")
     public = models.BooleanField(verbose_name='Público')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Creado")
     upgrade_at = models.DateTimeField(auto_now=True, verbose_name="Editado")
