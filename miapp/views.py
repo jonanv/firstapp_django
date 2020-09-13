@@ -90,11 +90,11 @@ def crear_articulo(request, title, content, public):
 # Metodo save article
 def save_article(request):
 
-    if request.method == 'GET':
+    if request.method == 'POST':
 
-        title = request.GET['title']
-        content = request.GET['content']
-        public = request.GET['public']
+        title = request.POST['title']
+        content = request.POST['content']
+        public = request.POST['public']
 
         articulo = Article(
             title = title,

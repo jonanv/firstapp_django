@@ -7,7 +7,9 @@
 {% block content %}
     <h1 class="title">Formularios en Django</h1>
 
-    <form action="{% url 'save' %}" method="GET" autocomplete="off">
+    <form action="{% url 'save' %}" method="POST" autocomplete="off">
+        {% csrf_token %}
+        
         <div class="form-group">
             <label for="title">Titulo</label>
             <input type="text" class="form-control" name="title">
