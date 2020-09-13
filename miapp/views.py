@@ -88,15 +88,25 @@ def crear_articulo(request, title, content, public):
     return HttpResponse(f"Articulo creado: { articulo.title } - { articulo.content }")
 
 # Metodo save article
-def save_article(request, title, content, public):
-    articulo = Article(
-        title = title,
-        content = content,
-        public = public
-    )
-    articulo.save()
+def save_article(request):
 
-    return HttpResponse(f"Articulo creado: { articulo.title } - { articulo.content }")
+    if request.method == 'GET':
+
+        title = request.GET['title']
+        content = request.GET['content']
+        public = request.GET['public']
+
+        articulo = Article(
+            title = title,
+            content = content,
+            public = public
+        )
+        articulo.save()
+        response = HttpResponse(f"Articulo creado: { articulo.title } - { articulo.content }")
+    else:
+        response = HttpResponse("<h2>No se ha podido crear el articulo</h2>")
+
+    return response
 
 # Metodo create article
 def create_article(request):
@@ -148,9 +158,10 @@ def articulos(request):
     # consulta SQL
     # articulos = Article.objects.raw("SELECT * FROM miapp_article WHERE title='prueba' AND public=0")
 
-    articulos = Article.objects.filter(
-        Q(title__contains='3') | Q(title__contains='prueba')
-    )
+    # OR
+    # articulos = Article.objects.filter(
+    #     Q(title__contains='3') | Q(title__contains='prueba')
+    # )
 
     return render(request, 'articulos.html', {
         'articulos': articulos
