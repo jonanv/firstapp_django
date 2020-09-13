@@ -87,6 +87,21 @@ def crear_articulo(request, title, content, public):
 
     return HttpResponse(f"Articulo creado: { articulo.title } - { articulo.content }")
 
+# Metodo save article
+def save_article(request, title, content, public):
+    articulo = Article(
+        title = title,
+        content = content,
+        public = public
+    )
+    articulo.save()
+
+    return HttpResponse(f"Articulo creado: { articulo.title } - { articulo.content }")
+
+# Metodo create article
+def create_article(request):
+    return render(request, 'create_article.html')
+
 # Metodo de la vista articulo
 def articulo(request):
     try:
